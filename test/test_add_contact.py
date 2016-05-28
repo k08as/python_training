@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pytest
 from fixture.application import Application
-from model.group import Group
+from model.group_contact import GroupContact
 
 
 @pytest.fixture
@@ -11,13 +11,13 @@ def app(request):
     return fixture
 
 
-def test_add_group(app):
+def test_add_contact(app):
     app.session.login(username="admin", password="secret")
-    app.group.create(Group(name="dfdsfd", header="sdfsdf", footer="sfdsffdf"))
+    app.contact.create(GroupContact(firstname="Stas", lastname="Emelianov", title="Mr", email="emelianov.stanislav@gmail.com"))
     app.session.logout()
 
 
-def test_add_empty_group(app):
+def test_add_empty_contact(app):
     app.session.login(username="admin", password="secret")
-    app.group.create(Group(name="", header="", footer=""))
+    app.contact.create(GroupContact(firstname="", lastname="", title="", email=""))
     app.session.logout()
