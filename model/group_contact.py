@@ -1,6 +1,6 @@
 class GroupContact:
 
-    def __init__(self, firstname, lastname, title, email):
+    def __init__(self, firstname=None, lastname=None, title=None, email=None):
         self.firstname = firstname
         self.lastname = lastname
         self.title = title
